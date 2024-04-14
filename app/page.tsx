@@ -6,11 +6,17 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from '@/app/components/ui/card';
+import { ThemeToggle } from '@/app/components/themeToggle/ThemeToggle';
+import { type FC } from 'react';
 
 export default function Home() {
   return (
     <main>
+      <div className="">
+        <div className="text-lg font-bold">Home</div>
+        <ThemeToggle />
+      </div>
       <div className="grid lg:grid-cols-3 gap-4">
         <Card>
           <CardHeader>
@@ -20,7 +26,6 @@ export default function Home() {
           <CardContent>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
-              aut.
             </p>
           </CardContent>
           <CardFooter>
