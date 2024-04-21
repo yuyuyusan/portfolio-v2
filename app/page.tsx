@@ -8,14 +8,27 @@ import {
   CardTitle,
 } from '@/app/components/ui/card';
 import { ThemeToggle } from '@/app/components/themeToggle/ThemeToggle';
-import { type FC } from 'react';
+import CardDataList from '@/app/components/CardDataList';
+import { CardData } from '@/app/types/types';
 
-export default function Home() {
+async function getCardAllData() {
+  const response = await fetch('http://localhost:3000/api/post', {
+    cache: 'no-store',
+  });
+  const cardAllData: CardData[] = await response.json();
+  return cardAllData;
+}
+
+export default async function Home() {
+  const cardAllData = await getCardAllData();
   return (
     <main>
       <div className="">
         <div className="text-lg font-bold">Home</div>
         <ThemeToggle />
+      </div>
+      <div className="grid lg:grid-cols-3 gap-4">
+        <CardDataList cardAllData={cardAllData} />
       </div>
       <div className="grid lg:grid-cols-3 gap-4">
         <Card>
