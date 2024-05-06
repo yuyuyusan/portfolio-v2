@@ -18,11 +18,19 @@ export default async function DetailData({
   console.log(detailData);
   return (
     <>
-      <div className="text-lg font-bold">
-        <h1>{detailData.title}</h1>
-        <p>{detailData.content}</p>
-        <p>{detailData.id}</p>
-        <p>{detailData.username}</p>
+      <div className="mx-auto max-w-4xl p-4">
+        <div className="mb-8">
+          <h1 className="text-2xl font-bold mb-4">{detailData.title}</h1>
+          <p className="text-gray-400">{detailData.username}</p>
+          <p>{detailData.content}</p>
+          <p>{detailData.id}</p>
+        </div>
+        <a
+          href={'/'}
+          className="bg-blue-400 text-white font-bold py-2 px-4 rounded-sm"
+        >
+          戻る
+        </a>
       </div>
     </>
   );
